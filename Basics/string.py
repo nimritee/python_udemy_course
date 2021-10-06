@@ -29,4 +29,4 @@ print(myslicestring.split('d')) # Split on the letter d
 #Print Formatting 
 x = "Hi Good Day {Nachname}, {Forname}".format(Nachname="Sirsalewala",Forname="Nimirtee")
 print(x)
-
+# y = "Hi {} hhf {}".format("helo","fh")
