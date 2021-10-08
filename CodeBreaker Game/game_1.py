@@ -39,19 +39,23 @@ def random_num():
 
 def match_number(user_number, random_num):
     result = {}
+    random_num_list = []
     user_num_list =[]
     position_couter = 0
     for x in str(user_number):
         user_num_list.append(x)
-    
-    print(user_num_list)
-    
+
+    for y in str(random_num):
+        random_num_list.append(y)
+        
     for item in user_num_list:
         item = str(item) 
         position = str(random_num).find(item)
         if position != -1:
-            position_indication = "{} position".format(position_couter)
-            result[position_indication] = item
+            if user_num_list[position] == random_num_list[position]:
+                position_indication = "{} position".format(position_couter)
+                result[position_indication] = item
+
         position_couter = position_couter +1
     return result
 
