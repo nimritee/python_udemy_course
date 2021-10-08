@@ -41,14 +41,15 @@ def match_number(user_number, random_num):
     result = {}
     random_num_list = []
     user_num_list =[]
-    position_couter = 0
+    # position_couter = 0
     for x in str(user_number):
         user_num_list.append(x)
 
     for y in str(random_num):
         random_num_list.append(y)
         
-    for item in user_num_list:
+    for position_couter,item in enumerate(user_num_list):
+        print(position_couter)
         item = str(item) 
         position = str(random_num).find(item)
         if position != -1:
@@ -56,7 +57,7 @@ def match_number(user_number, random_num):
                 position_indication = "{} position".format(position_couter)
                 result[position_indication] = item
 
-        position_couter = position_couter +1
+        # position_couter = position_couter +1
     return result
 
 def guess_game(user_number,random_num):
