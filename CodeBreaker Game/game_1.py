@@ -49,7 +49,6 @@ def match_number(user_number, random_num):
         random_num_list.append(y)
         
     for position_couter,item in enumerate(user_num_list):
-        print(position_couter)
         item = str(item) 
         position = str(random_num).find(item)
         if position != -1:
