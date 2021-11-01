@@ -1,5 +1,6 @@
 from datetime import date
 from datetime import datetime
+from os import kill
 
 class User():
 
@@ -15,13 +16,18 @@ class User():
     
     def getAge(self):
         today = date.today()
-        birthdate = datetime.strptime(self.dateOfBirth, '%m-%d-%Y').date()
-        age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
+        dob = datetime.strptime(self.dateOfBirth, '%m-%d-%Y').date()
+        years = today.year - dob.year - ((today.month,today.day) < (dob.month,dob.day))
+        age = "{} Years".format(years)
         return age
 
-myuser= User('Nimritee','11-22-1997')
-print('The first name of the user is:', myuser.getFirstname())
+username = input("Hello, Please enter your first name: ")
+dob = input("Hi {}, please enter your birthdate in 'MM-DD-YYYY' format.\n".format(username))
+myuser= User(username,dob)
+
+print('The first name of the user is: ', myuser.getFirstname())
 newname = input('Enter the new user name: ')
+
 changeUsername = myuser.setFirstname(newname)
 print('The first name of the user has been updated to:', myuser.getFirstname())
-print('The age of the user is:', myuser.getAge(),"Years")
+print('The age of the user is:', myuser.getAge())
