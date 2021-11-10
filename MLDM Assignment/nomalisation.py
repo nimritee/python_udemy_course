@@ -57,6 +57,7 @@ def transform_nominal(og_dataframe):
         dataframe[column] = 0 
     for index, row in dataframe.iterrows():
         dataframe.loc[[index],[row['Colour']]]=1
+    dataframe = dataframe.drop('Colour',axis=1) #To drop the Colour column
     return(dataframe)
 
 
