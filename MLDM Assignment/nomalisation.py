@@ -52,18 +52,13 @@ def fill_values(og_dataframe):
 # Function to transform the Colour column into green,yellow and red, by adding 1 if its True for that row and the rest 0
 def transform_nominal(og_dataframe):
     dataframe = og_dataframe.copy() # Making a copy of the dataframe passed
-    dataframe['green']= 0
-    dataframe['yellow'] =0
-    dataframe['red'] = 0
+    attribute_values = og_dataframe['Colour'].unique() # Getting unique values from the Column
+    for column in attribute_values: # Creating Columns of all the unique value
+        dataframe[column] = 0 
     for index, row in dataframe.iterrows():
-        if row['Colour'] == 'Red':
-            dataframe.loc[index,'red']=1
-        elif row['Colour'] == 'Green':
-            dataframe.loc[index,'green']=1
-        else:
-            dataframe.loc[index,'yellow']=1
-    dataframe = dataframe.drop('Colour', 1)
+        dataframe.loc[[index],[row['Colour']]]=1
     return(dataframe)
+
 
 # Function to normalise the values of each numerical attribute with min-max method
 def normalise_minmax(og_dataframe):
