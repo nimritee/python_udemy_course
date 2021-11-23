@@ -5,7 +5,7 @@ import pandas as pd
 URL = "https://www.timeanddate.com/weather/germany"
 r = requests.get(URL)
 
-soup = BeautifulSoup(r.content, 'html5lib') # If this line causes an error, run 'pip install html5lib' or install html5libcl
+soup = BeautifulSoup(r.content, 'html5lib') 
 
 tables = soup.find_all('table')
 table = soup.find('table', class_='zebra fw tb-wt zebra va-m')
@@ -54,5 +54,4 @@ for row in table.tbody.find_all('tr'):
         recorded_time=None
         description= None
 
-print(df)
-df.to_csv('weather.csv')
+df.to_csv('weather.csv') # Storing the collected data, into CSV
