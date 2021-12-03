@@ -12,6 +12,6 @@ fig, ax = plt.subplots(nrows=4, ncols=4, figsize=(20,25))
 size = 1000
 for i,ax in zip(range(16),ax.ravel()):
     sns.distplot(random.exponential(scale=i,size=1000), hist=False, ax=ax) 
-    size = size + (i*100)
     ax.set(xlabel='scale ={} and size ={}'.format(i,size))
+    size = size + (i*100)
 plt.show()
