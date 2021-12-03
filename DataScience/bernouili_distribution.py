@@ -14,7 +14,7 @@ p=0.2
 for i,ax in zip(range(16),ax.ravel()):
     data_bern = bernoulli.rvs(size=size,p=p)
     sb.distplot(data_bern,kde=True,ax=ax)
-    ax.set(xlabel='lam ={} and size ={}'.format(i,size))
+    ax.set(xlabel='size ={} and p ={}'.format(size,p))
     size = size + (i*100)
     p = p + 0.1
 plt.show()
