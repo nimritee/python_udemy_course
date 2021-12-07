@@ -10,8 +10,8 @@ ax = ax.ravel()
 scale = 40
 
 for i in range(16):
-    scale = scale + 10
-    ax[i].hist(np.random.normal(loc=i, scale =scale, size=(100000)),bins=85) # (loc=mean,scale=standard_deviation,size=nos_of_datapoints)
+    ax[i].hist(np.random.normal(loc=i, scale =scale, size=(100000)),bins=85)
     ax[i].set_xlabel('mean ={} and sd ={}'.format(i,scale))
     ax[i].set_ylabel('Frequency')
+    scale = scale + 10
 plt.show()
