@@ -8,12 +8,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Plot the graph
-fig, ax = plt.subplots(nrows=4, ncols=4, figsize=(20,25))
+fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(15,15))
 size = 1000
 lam=2
-for i,ax in zip(range(16),ax.ravel()):
+for i,ax in zip(range(4),ax.ravel()):
     sns.distplot(random.poisson(lam=lam, size=size), kde=False, ax=ax)
-    ax.set(xlabel='lam ={} and size ={}'.format(i,size))
+    ax.set(xlabel='lam ={} and size ={}'.format(i,size),ylabel='frequency')
     size = size + (i*100)
     lam = lam + 2
+    fig.suptitle('Poisson Distribution',fontweight ="bold")
 plt.show()
