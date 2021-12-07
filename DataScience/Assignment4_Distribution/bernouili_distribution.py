@@ -9,12 +9,13 @@ import seaborn as sb
 # Plot the graph
 fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(10,15))
 
-size = 1000
+size = 1500
 p=0.2
-for i,ax in zip(range(16),ax.ravel()):
+for i,ax in zip(range(4),ax.ravel()):
     data_bern = bernoulli.rvs(size=size,p=p)
-    sb.distplot(data_bern,kde=True,ax=ax)
+    sb.distplot(data_bern,ax=ax)
     ax.set(xlabel='size ={} and p ={}'.format(size,p))
     size = size + (i*100)
     p = p + 0.1
+    fig.suptitle('Bernoulli Distribution',fontweight ="bold")
 plt.show()
