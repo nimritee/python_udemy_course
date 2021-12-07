@@ -8,10 +8,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Plot the graph
-fig, ax = plt.subplots(nrows=4, ncols=4, figsize=(20,25))
+fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(15,15))
 size = 1000
-for i,ax in zip(range(16),ax.ravel()):
-    sns.distplot(random.exponential(scale=i,size=1000), hist=False, ax=ax) 
-    ax.set(xlabel='scale ={} and size ={}'.format(i,size))
+for i,ax in zip(range(4),ax.ravel()):
+    sns.distplot(random.exponential(scale=i+1,size=1000), ax=ax)
+    ax.set(xlabel='scale ={} and size ={}'.format(i+1,size))
     size = size + (i*100)
+    fig.suptitle('Exponential Distribution',fontweight ="bold")
 plt.show()
